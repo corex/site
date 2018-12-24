@@ -30,7 +30,7 @@ Config::setTheme(Theme::UNITED);
 
 ## Examples
 
-### Them "slate", inject view with some text into a layout.
+### Theme "slate", inject view with some text into a layout.
 ```php
 Config::setTheme(Theme::SLATE);
 $view = View::load('test')->variable('message', 'Some text');
