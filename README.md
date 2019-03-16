@@ -1,6 +1,9 @@
 # Site
 
-**_Versioning for this package follows http://semver.org/. Backwards compatibility might break on upgrade to major versions._**
+![License](https://img.shields.io/packagist/l/corex/site.svg)
+![Build Status](https://travis-ci.org/corex/site.svg?branch=master)
+![codecov](https://codecov.io/gh/corex/site/branch/master/graph/badge.svg)
+
 
 The purpose of this package is to keep it simple and make it possible to quickly setup a site (html, template).
 Setting up a site is easy and requires only few steps.
