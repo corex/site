@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\CoRex\Site;
 
-use CoRex\Site\Helpers\Bootstrap;
+use CoRex\Site\Bootstrap;
 use CoRex\Site\Theme;
 use PHPUnit\Framework\TestCase;
 

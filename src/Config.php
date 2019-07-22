@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CoRex\Site;
 
-use CoRex\Site\Helpers\Bootstrap;
+use CoRex\Site\Exceptions\BootstrapException;
 use CoRex\Site\Helpers\Path;
 
 class Config
@@ -14,9 +14,6 @@ class Config
 
     /** @var string[] */
     private static $viewPaths;
-
-    /** @var string[] */
-    private static $themeConstant;
 
     /**
      * Set layout path (can be called more than once).
@@ -65,37 +62,12 @@ class Config
     /**
      * Set theme.
      *
-     * @param string[] $themeConstant See Boostrap::THEME_*.
+     * @param string $theme See Theme::THEME_*.
+     * @throws BootstrapException
      */
-    public static function setTheme(array $themeConstant): void
+    public static function setTheme(string $theme): void
     {
-        self::initialize();
-        self::$themeConstant = $themeConstant;
-    }
-
-    /**
-     * Get theme.
-     *
-     * @return string[]
-     */
-    public static function getTheme(): ?array
-    {
-        self::initialize();
-        return self::$themeConstant;
-    }
-
-    /**
-     * Get theme name.
-     *
-     * @return string
-     */
-    public static function getThemeName(): ?string
-    {
-        self::initialize();
-        if (self::$themeConstant !== null) {
-            return Bootstrap::getThemeName(self::$themeConstant);
-        }
-        return null;
+        Bootstrap::setTheme($theme);
     }
 
     /**
@@ -105,7 +77,7 @@ class Config
      */
     public static function getDefaultLayoutPath(): string
     {
-        return Path::packageCurrent(['templates/layouts']);
+        return Path::packageCurrent(['resources/layouts']);
     }
 
     /**
@@ -115,7 +87,7 @@ class Config
      */
     public static function getDefaultViewPath(): string
     {
-        return Path::packageCurrent(['templates/views']);
+        return Path::packageCurrent(['resources/views']);
     }
 
     /**

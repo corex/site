@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CoRex\Site;
 
-use CoRex\Site\Helpers\Bootstrap;
-
 class Theme
 {
     public const BOOTSTRAP = Bootstrap::THEME_BOOTSTRAP;

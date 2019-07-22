@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace CoRex\Site;
 
 use CoRex\Site\Base\BaseTemplate;
-use CoRex\Site\Helpers\Bootstrap;
 use CoRex\Template\Helpers\PathEntry;
 
 class Layout extends BaseTemplate
 {
+    private const TEMPLATE_STANDARD = 'standard';
+
+    /** @var string */
+    private $layoutName;
+
     /**
      * Layout.
      *
@@ -18,9 +22,8 @@ class Layout extends BaseTemplate
      */
     public function __construct(?string $layoutName = null)
     {
-        if ($layoutName === null) {
-            $layoutName = 'standard';
-        }
+        $this->determineLayout($layoutName);
+        $this->layoutName = $layoutName;
 
         // Convert to path entries.
         $pathEntries = [];
@@ -56,25 +59,36 @@ class Layout extends BaseTemplate
     }
 
     /**
-     * Set base layout variables.
+     * Determine layout.
      *
-     * @throws Exceptions\SiteException
+     * @param string $layoutName
+     */
+    private function determineLayout(?string &$layoutName): void
+    {
+        // If theme is set, change layout to bootstrap instead of standard.
+        if ($layoutName === null) {
+            $layoutName = self::TEMPLATE_STANDARD;
+        }
+
+        $theme = Bootstrap::getTheme();
+        if ($theme === null) {
+            return;
+        }
+
+        $layoutName = Bootstrap::getLayoutName();
+    }
+
+    /**
+     * Set base layout variables.
      */
     private function setBaseLayoutVariables(): void
     {
-        // Set theme constant,
-        $themeConstant = Config::getTheme();
-        if ($themeConstant === null) {
-            $themeConstant = Bootstrap::THEME_BOOTSTRAP;
+        $theme = Bootstrap::getTheme();
+        if ($theme === null) {
+            return;
         }
 
-        // Set basic layout variables.
-        $this->variable('bootstrapThemeUrl', Bootstrap::bootstrapThemeUrl($themeConstant));
-        $this->variable('bootstrapThemeIntegrity', Bootstrap::bootstrapThemeIntegrity($themeConstant));
-        $this->variable('bootstrapScriptUrl', Bootstrap::bootstrapScriptUrl());
-        $this->variable('bootstrapScriptIntegrity', Bootstrap::bootstrapScriptIntegrity());
-        $this->variable('jQueryScriptUrl', Bootstrap::jQueryScriptUrl());
-        $this->variable('popperScriptUrl', Bootstrap::popperScriptUrl());
-        $this->variable('popperScriptIntegrity', Bootstrap::popperScriptIntegrity());
+        $themeData = Bootstrap::getThemeData();
+        $this->variables($themeData);
     }
 }

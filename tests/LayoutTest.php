@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Tests\CoRex\Site;
 
 use CoRex\Helpers\Obj;
+use CoRex\Site\Bootstrap;
 use CoRex\Site\Config;
-use CoRex\Site\Helpers\Bootstrap;
+use CoRex\Site\Exceptions\BootstrapException;
 use CoRex\Site\Layout;
 use CoRex\Template\Helpers\Engine;
 use PHPUnit\Framework\TestCase;
@@ -36,22 +37,38 @@ class LayoutTest extends TestCase
     }
 
     /**
-     * Test render.
+     * Test render standard template.
      *
      * @throws \Exception
      */
-    public function testRender(): void
+    public function testRenderStandard(): void
     {
-        $themeConstant = Bootstrap::THEME_BOOTSTRAP;
+        Bootstrap::clearTheme();
         $layout = Layout::load();
         $output = $layout->render();
-        $this->assertContains(Bootstrap::bootstrapThemeUrl($themeConstant), $output);
-        $this->assertContains(Bootstrap::bootstrapThemeIntegrity($themeConstant), $output);
-        $this->assertContains(Bootstrap::bootstrapScriptUrl(), $output);
-        $this->assertContains(Bootstrap::bootstrapScriptIntegrity(), $output);
-        $this->assertContains(Bootstrap::jQueryScriptUrl(), $output);
-        $this->assertContains(Bootstrap::popperScriptUrl(), $output);
-        $this->assertContains(Bootstrap::popperScriptIntegrity(), $output);
+        $this->assertStringNotContainsString('bootstrapcdn', $output);
+    }
+
+    /**
+     * Test render bootstrap.
+     *
+     * @throws BootstrapException
+     * @throws \Exception
+     */
+    public function testRenderBootstrap(): void
+    {
+        $themes = Bootstrap::getThemes();
+        foreach ($themes as $theme) {
+            Bootstrap::setTheme($theme);
+            $layout = Layout::load();
+            $output = $layout->render();
+
+            $themeData = Bootstrap::getThemeData();
+            $this->assertStringContainsString('bootstrapcdn', $output);
+            $this->assertStringContainsString($themeData['provider'], $output);
+            $this->assertStringContainsString($themeData['theme'], $output);
+            $this->assertStringContainsString($themeData['integrity'], $output);
+        }
     }
 
     /**
@@ -64,5 +81,7 @@ class LayoutTest extends TestCase
         parent::setUp();
         Obj::setProperty('layoutPaths', null, null, Config::class);
         Obj::setProperty('themeConstant', null, null, Config::class);
+        Bootstrap::clearTheme();
+        Bootstrap::clearVersion();
     }
 }

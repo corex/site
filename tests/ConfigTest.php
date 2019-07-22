@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Tests\CoRex\Site;
 
 use CoRex\Helpers\Obj;
+use CoRex\Site\Bootstrap;
 use CoRex\Site\Config;
-use CoRex\Site\Helpers\Bootstrap;
+use CoRex\Site\Exceptions\BootstrapException;
 use CoRex\Site\Theme;
 use PHPUnit\Framework\TestCase;
 
@@ -57,34 +58,16 @@ class ConfigTest extends TestCase
     }
 
     /**
-     * Test setTheme() and getTheme().
+     * Test setTheme().
      *
-     * @throws \ReflectionException
+     * @throws BootstrapException
      */
     public function testSetThemeAndGetTheme(): void
     {
-        Obj::setProperty('themeConstant', null, null, Config::class);
-
-        $this->assertNull(Config::getTheme());
-
+        Bootstrap::clearTheme();
+        $this->assertNull(Bootstrap::getTheme());
         Config::setTheme(Theme::SLATE);
-
-        $this->assertEquals(Bootstrap::THEME_SLATE, Config::getTheme());
-    }
-
-    /**
-     * Test getThemeName().
-     *
-     * @throws \ReflectionException
-     */
-    public function testGetThemeName(): void
-    {
-        Obj::setProperty('themeConstant', null, null, Config::class);
-        $this->assertNull(Config::getThemeName());
-
-        Config::setTheme(Theme::SLATE);
-
-        $this->assertEquals('slate', Config::getThemeName());
+        $this->assertEquals(Bootstrap::THEME_SLATE, Bootstrap::getTheme());
     }
 
     /**

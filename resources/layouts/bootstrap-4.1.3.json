@@ -1,0 +1,112 @@
+{
+    "bootstrap": {
+        "provider": "bootstrap",
+        "theme": "css",
+        "integrity": "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    },
+    "cerulean": {
+        "provider": "bootswatch",
+        "theme": "cerulean",
+        "integrity": "sha384-qVp3sGZJcZdk20BIG6O0Sb0sYRyedif3+Z8bZtQueBW/g7Dp67a0XdiMmmWCCm82"
+    },
+    "cosmo": {
+        "provider": "bootswatch",
+        "theme": "cosmo",
+        "integrity": "sha384-3Ivskwia8Fui5tbQi+RW4DgTkJ8d+hW7mLe7Yk89ibmD9482VECh0WFof8kIEjwI"
+    },
+    "cyborg": {
+        "provider": "bootswatch",
+        "theme": "cyborg",
+        "integrity": "sha384-4DAPMwiyOJv/C/LvTiUsW5ueiD7EsaAhwUKO0Llp+fWzT40XrmAbayhVP00bAJVa"
+    },
+    "darkly": {
+        "provider": "bootswatch",
+        "theme": "darkly",
+        "integrity": "sha384-w+yWASP3zYNxxvwoQBD5fUSc1tctKq4KUiZzxgkBSJACiUp+IbweVKvsEhMI+gz7"
+    },
+    "flatly": {
+        "provider": "bootswatch",
+        "theme": "flatly",
+        "integrity": "sha384-gJWVjz180MvwCrGGkC4xE5FjhWkTxHIR/+GgT8j2B3KKMgh6waEjPgzzh7lL7JZT"
+    },
+    "journal": {
+        "provider": "bootswatch",
+        "theme": "journal",
+        "integrity": "sha384-5C8TGNupopdjruopVTTrVJacBbWqxHK9eis5DB+DYE6RfqIJapdLBRUdaZBTq7mE"
+    },
+    "litera": {
+        "provider": "bootswatch",
+        "theme": "litera",
+        "integrity": "sha384-JuAGGg3c8UPrWdf0N8ZPJyOHkACruI9+mbl0C+H6XSYOqv9xIdiUSKehRyA8jUol"
+    },
+    "lumen": {
+        "provider": "bootswatch",
+        "theme": "lumen",
+        "integrity": "sha384-DfbCiBdRiiNWvRTbHe5X9IfkezKzm0pCrZSKc7EM9mmSl/OyckwbYk3GrajL8Ngy"
+    },
+    "lux": {
+        "provider": "bootswatch",
+        "theme": "lux",
+        "integrity": "sha384-ML9h/UCooefre72ZPxxOHyjbrLT1xKV0AHON1J+OlOV2iwcYemqmWyMfTcfyzLJ1"
+    },
+    "materia": {
+        "provider": "bootswatch",
+        "theme": "materia",
+        "integrity": "sha384-5bFGNjwF8onKXzNbIcKR8ABhxicw+SC1sjTh6vhSbIbtVgUuVTm2qBZ4AaHc7Xr9"
+    },
+    "minty": {
+        "provider": "bootswatch",
+        "theme": "minty",
+        "integrity": "sha384-Qt9Hug5NfnQDGMoaQYXN1+PiQvda7poO7/5k4qAmMN6evu0oDFMJTyjqaoTGHdqf"
+    },
+    "pulse": {
+        "provider": "bootswatch",
+        "theme": "pulse",
+        "integrity": "sha384-c0rj6xRl6Zm4U4BwLaWhUoP/xPI8Sq+9Gt0F+JO5DSLZN0Ur0Ihc6rU59Rbgk1zV"
+    },
+    "sandstone": {
+        "provider": "bootswatch",
+        "theme": "sandstone",
+        "integrity": "sha384-CfCAYEgrdtRrpvjGKxoaRy5ge1ggMbxNSpEkY+XqdfdRTUkRrYZVB2z99E7BsEDZ"
+    },
+    "simplex": {
+        "provider": "bootswatch",
+        "theme": "simplex",
+        "integrity": "sha384-C/fi3Y7sgGQc3Lxu71QIVbBJ9iNQ/11o+YZNg2GRUrRrJayHEMpEc2I/jFSkMXAW"
+    },
+    "sketchy": {
+        "provider": "bootswatch",
+        "theme": "sketchy",
+        "integrity": "sha384-5cy8WdlNAGqQwyB33aLiqJoRQQxZsc3TDUkSTahHAx2gMK3o0te7Xqm+nNLe4Ou3"
+    },
+    "slate": {
+        "provider": "bootswatch",
+        "theme": "slate",
+        "integrity": "sha384-ywjdn7N8uoxzIfGl7jlEBlqw2BNicOSzZDgo7A2ffvbM24Ct9plRp7KwtaIqZ33j"
+    },
+    "solar": {
+        "provider": "bootswatch",
+        "theme": "solar",
+        "integrity": "sha384-h5kYMLFNMyLXdVYK3MKZeOfXMdU6XqV1do5KyjoYZGlW1FJOj+5qr9u1d7NNCH4N"
+    },
+    "spacelab": {
+        "provider": "bootswatch",
+        "theme": "spacelab",
+        "integrity": "sha384-Xz7cmOriFCe/JvTrkgJ3kkDsR1J/mZw7hflmvRq74Mv5W7LwSyl07d/xLcs4CrRe"
+    },
+    "superhero": {
+        "provider": "bootswatch",
+        "theme": "superhero",
+        "integrity": "sha384-u4BOm6DXWNW9DDMz3uKYKOOtsYm6pt8m8DxK2sVQ9RJVnWP8mjOIct/zzXkwobmN"
+    },
+    "united": {
+        "provider": "bootswatch",
+        "theme": "united",
+        "integrity": "sha384-+d4wMJSxEP3vzs2qZBElQRTZMXwgWH15Nyn2K/9XjKiHmh3sBuk1Un/IbcdMcYC4"
+    },
+    "yeti": {
+        "provider": "bootswatch",
+        "theme": "yeti",
+        "integrity": "sha384-MEq8xmFd953gp2FVvLd8DUEvfBjGCzDjem+gmDqfyyWcaxX4BUD7TtSu1EszNTvK"
+    }
+}
