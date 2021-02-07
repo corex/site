@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.1
+
+### Fixed
+- Added missing jQuery entry for 4.5.2 layout.
+
 ## 2.1.0
 
 ### Added
