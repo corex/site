@@ -6,6 +6,7 @@ namespace CoRex\Site;
 
 use CoRex\Site\Base\BaseTemplate;
 use CoRex\Template\Helpers\PathEntry;
+use Exception;
 
 class View extends BaseTemplate
 {
@@ -13,7 +14,7 @@ class View extends BaseTemplate
      * View.
      *
      * @param string $viewName
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(string $viewName)
     {
@@ -32,7 +33,7 @@ class View extends BaseTemplate
      *
      * @param string $viewName
      * @return static
-     * @throws \Exception
+     * @throws Exception
      */
     public static function load(string $viewName): self
     {

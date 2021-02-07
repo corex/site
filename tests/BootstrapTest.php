@@ -41,6 +41,7 @@ class BootstrapTest extends TestCase
 
     /** @var string[] */
     private $versions = [
+        'V4_5_2' => '4.5.2',
         'V4_3_1' => '4.3.1',
         'V4_1_3' => '4.1.3'
     ];
@@ -124,6 +125,7 @@ class BootstrapTest extends TestCase
         $versions = Bootstrap::getVersions();
         $this->assertContains(Bootstrap::V4_1_3, $versions);
         $this->assertContains(Bootstrap::V4_3_1, $versions);
+        $this->assertContains(Bootstrap::V4_5_2, $versions);
     }
 
     /**

@@ -50,7 +50,8 @@ class Bootstrap
     public const THEME_YETI = 'yeti';
 
     // Version constants.
-    public const LATEST = self::V4_3_1;
+    public const LATEST = self::V4_5_2;
+    public const V4_5_2 = '4.5.2';
     public const V4_3_1 = '4.3.1';
     public const V4_1_3 = '4.1.3';
 

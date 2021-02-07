@@ -24,7 +24,7 @@ Following variables are supported
 - body - Body og page.
 - error - Error message placed on top of page.
 
-Bootstrap versions supported: 4.3.1, 4.1.3
+Bootstrap versions supported: 4.5.2, 4.3.1, 4.1.3
 
 
 ## Config

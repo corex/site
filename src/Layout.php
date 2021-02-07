@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace CoRex\Site;
 
 use CoRex\Site\Base\BaseTemplate;
+use CoRex\Template\Exceptions\TemplateException;
 use CoRex\Template\Helpers\PathEntry;
+use Exception;
 
 class Layout extends BaseTemplate
 {
@@ -17,8 +19,8 @@ class Layout extends BaseTemplate
     /**
      * Layout.
      *
-     * @param string $layoutName
-     * @throws \Exception
+     * @param string|null $layoutName
+     * @throws TemplateException
      */
     public function __construct(?string $layoutName = null)
     {
@@ -38,9 +40,9 @@ class Layout extends BaseTemplate
     /**
      * Load.
      *
-     * @param string $layoutName If not specified, "standard" is used.
+     * @param string|null $layoutName If not specified, "standard" is used.
      * @return static
-     * @throws \Exception
+     * @throws Exception
      */
     public static function load(?string $layoutName = null): self
     {
@@ -50,7 +52,7 @@ class Layout extends BaseTemplate
     /**
      * Render.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function render(): string
     {
@@ -61,21 +63,23 @@ class Layout extends BaseTemplate
     /**
      * Determine layout.
      *
-     * @param string $layoutName
+     * @param string|null $layoutName
      */
     private function determineLayout(?string &$layoutName): void
     {
-        // If theme is set, change layout to bootstrap instead of standard.
-        if ($layoutName === null) {
-            $layoutName = self::TEMPLATE_STANDARD;
-        }
-
-        $theme = Bootstrap::getTheme();
-        if ($theme === null) {
+        // If layout is set, simply return.
+        if ($layoutName !== null) {
             return;
         }
 
-        $layoutName = Bootstrap::getLayoutName();
+        $theme = Bootstrap::getTheme();
+        if ($theme !== null) {
+            // Set layout to bootstrap.
+            $layoutName = Bootstrap::getLayoutName();
+        } else {
+            // Set standard layout.
+            $layoutName = self::TEMPLATE_STANDARD;
+        }
     }
 
     /**

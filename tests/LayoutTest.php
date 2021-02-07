@@ -9,8 +9,11 @@ use CoRex\Site\Bootstrap;
 use CoRex\Site\Config;
 use CoRex\Site\Exceptions\BootstrapException;
 use CoRex\Site\Layout;
+use CoRex\Site\Theme;
+use CoRex\Template\Exceptions\TemplateException;
 use CoRex\Template\Helpers\Engine;
 use PHPUnit\Framework\TestCase;
+use ReflectionException;
 
 class LayoutTest extends TestCase
 {
@@ -72,9 +75,31 @@ class LayoutTest extends TestCase
     }
 
     /**
+     * Test determineLayout().
+     *
+     * @throws BootstrapException
+     * @throws TemplateException
+     * @throws ReflectionException
+     */
+    public function testDetermineLayout(): void
+    {
+        // Check standard layout name.
+        $layout = new Layout();
+        $this->assertSame('standard', Obj::getProperty('layoutName', $layout));
+
+        // Check specified layout name.
+        Config::setTheme(Theme::CYBORG);
+        $this->assertSame(Bootstrap::getLayoutName(), Obj::getProperty('layoutName', new Layout()));
+
+        // Check specified layout name.
+        $layoutName = 'testing';
+        $this->assertSame($layoutName, Obj::getProperty('layoutName', new Layout($layoutName)));
+    }
+
+    /**
      * Setup.
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     protected function setUp(): void
     {

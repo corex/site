@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/{{ provider }}/4.5.2/{{ theme }}/bootstrap.min.css"
+          integrity="{{ integrity }}"
+          crossorigin="anonymous">
+
+    <title>{{ title }}</title>
+</head>
+<body>
+{{# error }}
+<div class="alert alert-danger" role="alert">{{ error }}</div>
+{{/ error }}{{ body }}
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"></script>
+</body>
+</html>
